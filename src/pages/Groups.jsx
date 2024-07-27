@@ -3,7 +3,6 @@ import { Backdrop, Box, Button, CircularProgress, Drawer, Grid, IconButton, Stac
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Grouplist from "../components/specifics/Grouplist";
-import { sampleUser } from '../utils/sampleData';
 import UserItem from '../components/shared/UserItem';
 import { useAddMemberMutation, useDeleteChatMutation, useGetChatsDetailsQuery, useMyGroupsQuery, useRemoveMemberMutation, useUpdateGroupNameMutation } from '../redux/api';
 import { useAsyncMutation, useError } from '../hooks/hook';

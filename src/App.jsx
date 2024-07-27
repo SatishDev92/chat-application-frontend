@@ -1,5 +1,5 @@
 import React , { Suspense ,lazy, useEffect} from 'react'
-import { BrowserRouter , Routes , Route}  from "react-router-dom"
+import { BrowserRouter , Routes , Route, Navigate}  from "react-router-dom"
 import Protected from './components/auth/Protected';
 import LoaderR from './components/layout/LoaderR';
 import axios    from "axios";
@@ -8,6 +8,8 @@ import {useDispatch, useSelector} from "react-redux"
 import { userExists, userNotExists } from './redux/auth';
 import {Toaster} from "react-hot-toast"
 import { SocketProvider } from './socket';
+import './index.css';
+import Lannding from './le';
 
 const Home =  lazy(()=> import("./pages/Home"));
 const Chat = lazy(()=> import ("./pages/Chat"));
@@ -25,7 +27,10 @@ const MessageManager = lazy(()=> import("./pages/admin/MessageManager"));
 
 
 
+
 const App = () => {
+
+
 
   const {user ,loader} = useSelector((state) => state.redux);
 
@@ -44,14 +49,20 @@ const App = () => {
        <Route element ={<SocketProvider>
         <Protected user={user} />
        </SocketProvider> }>
-          <Route  path = "/"   element = {<Home />} />
+       <Route path="/" element={user ? <Home /> : <Navigate to="/home" />} />
           <Route  path = "/chat/:chatId"   element = {<Chat />} />
           <Route  path = "/group"   element = {<Group />} />
           
       </Route>
-       <Route path = "/login" element = {
+          <Route path = "/login" element = {
         <Protected user={!user} redirect='/'>
         <Login />
+       </Protected>} 
+       />
+
+        <Route path = "/home" element = {
+        <Protected user={!user} redirect='/'>
+        <Lannding />
        </Protected>} 
        />
 
@@ -63,6 +74,7 @@ const App = () => {
     <Route path='/admin/message-management'  element = {<MessageManager/>}/>
 
 <Route path = "*"  element = {<Notfound />} />
+
 
       </Routes>
 </Suspense> 
