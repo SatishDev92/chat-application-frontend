@@ -38,7 +38,7 @@ const Chatitem = ({
           <Typography>{name}</Typography>
           {newMessageAlert && newMessageAlert.count && (
             <Typography>
-              {newMessageAlert.count} New Message{newMessageAlert.count}
+               New Message{newMessageAlert.count}
             </Typography>
           )}
         </Stack>

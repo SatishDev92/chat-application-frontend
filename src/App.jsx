@@ -10,6 +10,9 @@ import {Toaster} from "react-hot-toast"
 import { SocketProvider } from './socket';
 import './index.css';
 import Lannding from './le';
+import Contact from './LandingPage/Contact';
+import Services from './LandingPage/Services';
+import About from './LandingPage/About';
 
 const Home =  lazy(()=> import("./pages/Home"));
 const Chat = lazy(()=> import ("./pages/Chat"));
@@ -75,6 +78,9 @@ const App = () => {
 
 <Route path = "*"  element = {<Notfound />} />
 
+<Route path="/contact" element={<Contact/>}/>
+<Route path="/service" element={<Services/>}/>
+<Route path="/abouts" element={<About/>}/>
 
       </Routes>
 </Suspense> 

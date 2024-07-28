@@ -4,7 +4,7 @@ const FifthSection = () => {
   return (
     <section className="bg-pink-100 w-full h-full text-gray-800 py-12 font-quicksand">
       <div className="relative py-20 flex justify-center">
-        <div className="absolute bottom-0 left-0 w-full h-16 bg-white transform top-[500px] -skew-y-2"></div>
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-white transform top-[510px] -skew-y-2"></div>
         <div className="text-center bg-white rounded-lg p-10 shadow-md z-10 max-w-4xl mx-auto">
           <h4 className="text-red-500 text-lg font-semibold">WHY CHOOSE US</h4>
           <h1 className="text-3xl font-bold mt-2">Our Unique Value Proposition</h1>
